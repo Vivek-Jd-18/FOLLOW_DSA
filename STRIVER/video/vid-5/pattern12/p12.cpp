@@ -11,7 +11,7 @@ int main()
     int row = 4;
 
     for (int i = 1; i <= row; i++)
-    {
+    { 
 
         // layer 1
         for (int j = 1; j <= i; j++)
