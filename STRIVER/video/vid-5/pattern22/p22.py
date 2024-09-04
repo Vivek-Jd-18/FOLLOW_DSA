@@ -14,11 +14,11 @@
 
 def p21(row:int)->None:
 
-    for i in range(row,0,-1):
+    for i in range(row):
         itr = row
         for j in range(row,0,-1):
             print(itr,end="")
-            if(j > (row-i)):
+            if(j >= (row-i+1)):
                 itr-=1
 
         print(" ")
