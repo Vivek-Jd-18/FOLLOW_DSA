@@ -9,13 +9,14 @@ using namespace std;
 
 bool comp(pair<int, int> p1, pair<int, int> p2)
 {
-    if (p1.first > p2.first)
-        return true;
-    if (p1.first < p2.first)
-        return false;
-
     if (p1.second < p2.second)
         return true;
+    if (p1.second > p2.second)
+        return false;
+
+    if (p1.first > p2.first)
+        return true;
+
     return false;
 }
 
@@ -238,24 +239,36 @@ int main()
 
     // ALGORITHMS
 
-    // sort
+    // // sort
 
-    int n = 5;
-    int a[] = {2, 4, 1, 3, 6, 5};
+    // int n = 5;
+    // int a[] = {2, 4, 1, 3, 6, 5};
 
-    // sort(a, end(a));
-    // sort(a, a+n, greater<int>);
+    // // sort(a, end(a));
+    // // sort(a, a+n, greater<int>);
 
-    // customized ordering
+    // // customized ordering
 
-    pair<int, int> p1[] = {{1, 2}, {2, 3}, {4, 3}, {1, 3}};
+    // pair<int, int> p1[] = {{1, 2}, {2, 3}, {4, 3}, {1, 3}};
 
-    sort(a, a + 2, comp);
-    // sort()
-    for (auto i : a)
-    {
-        cout << i << endl;
-    }
+    // sort(a, a, comp);
+    // // sort()
+    // for (auto i : a)
+    // {
+    //     cout << i << endl;
+    // }
 
+    //  next permutation
+    // string s = "123";
+    // do
+    // {
+    //     cout << s << endl;
+    // } while (next_permutation(s.begin(), s.end()));
+    
+
+    // max element 
+    int arr[] = {32,45,2,34,45,34,232,34,33,23,1211,3};
+    int max = *max_element(arr, arr+size(arr));
+    cout<< max << endl; 
     return 0;
 }
