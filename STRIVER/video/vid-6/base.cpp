@@ -262,7 +262,7 @@ int main()
     // string s = "123";
     // do
     // {
-    //     cout << s << endl;
+    //     cout << s << endl;L
     // } while (next_permutation(s.begin(), s.end()));
     
 
