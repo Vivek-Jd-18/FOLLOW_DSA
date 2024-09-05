@@ -265,7 +265,6 @@ int main()
     //     cout << s << endl;L
     // } while (next_permutation(s.begin(), s.end()));
     
-
     // max element 
     int arr[] = {32,45,2,34,45,34,232,34,33,23,1211,3};
     int max = *max_element(arr, arr+size(arr));
