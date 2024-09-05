@@ -1,26 +1,52 @@
-// ****
-// *  *
-// *  *
-// ****
+// 4 4 4 4 4 4 4
+// 4 3 3 3 3 3 4
+// 4 3 2 2 2 3 4
+// 4 3 2 1 2 3 4
+// 4 3 2 2 2 3 4
+// 4 3 3 3 3 3 4
+// 4 4 4 4 4 4 4
 
-// formula: 
-// printstars: only when (i==0 or i==row-1 or j==0 or j==row-1)
+// COPIED solutiosn, i haven't found a solution by my self yet
 
-#include <iostream>
+
+#include <bits/stdc++.h>
 using namespace std;
 
-int main()
+void pattern22(int n)
 {
-    int row = 5;
+     // Outer loop for no. of rows
+     for(int i=0;i<2*n-1;i++){
+         
+         // inner loop for no. of columns.
+         for(int j=0;j<2*n-1;j++){
+             
+             // Initialising the top, down, left and right indices of a cell.
+             int top = i;
+             int bottom = j;
+             int right = (2*n - 2) - j;
+             int left = (2*n - 2) - i;
+             
+             // Min of 4 directions and then we subtract from n
+             // because previously we would get a pattern whose border
+             // has 0's, but we want with border N's and then decreasing inside.
+             cout<<(n- min(min(top,bottom), min(left,right)))<<" ";
+         }
+         
+         // As soon as the numbers for each iteration are printed, we move to the
+         // next row and give a line break otherwise all numbers
+         // would get printed in 1 line.
+         cout<<endl;
+     }
+      
+}
 
-    for (char i = 0; i < row; i++){
-
-        for(int j = 0; j < row; j++){
-            if(i==0 || i==row-1 || j==0 || j==row-1)cout<<"*";
-            else cout<<" ";
-        }
-        cout<<endl;
-    }
+int main()
+{   
+    // Here, we have taken the value of N as 5.
+    // We can also take input from the user.
+    int N = 5;
+    
+    pattern22(N);
 
     return 0;
 }
