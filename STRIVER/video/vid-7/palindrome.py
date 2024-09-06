@@ -9,7 +9,6 @@ def is_palindrome(N):
         temp = n%10
         pal = pal*10 + temp
         n = n//10
-
     return (pal == N)
 
 print(is_palindrome(1234321))
