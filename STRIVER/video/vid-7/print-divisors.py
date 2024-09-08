@@ -36,30 +36,21 @@
 #     = 21
 
 def print_all_divisors(N):
-
-    # sum = 0
-    # i = 1
-    # while (i*i) <= N:
-    #     j = 1
-    #     while (j*j) <= i:
-    #         if(i % j == 0):
-    #             sum = sum + j
-    #             if (N // j != j):
-    #                 sum = sum + j
-    #         j+=1
-    #     i+=1
-    # return  sum
-
-
-    sum = 0
+    n = N
     i = 1
-    li = []
-    while (i*i) <= N:
-        if(N % i == 0):
-            li.append(i)
-            if(N/i != i):
-                li.append(N//i)
-        i+=1
-    return  li
+    count = 0
 
-print(print_all_divisors(12))
+    for i in range(1, N+1):
+
+        j = 1
+        while(j*j<= i):
+            if(i%j == 0):
+                count = count + j
+                if((i//j !=  j)):
+                    count = count + (i//j)
+            j+=1
+        i+=1
+    return count
+
+print(print_all_divisors(4))
+print(print_all_divisors(5))

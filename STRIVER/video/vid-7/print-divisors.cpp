@@ -6,19 +6,21 @@ int printAllDivisors(int N)
     int n = N;
     int sum = 0;
 
-    for (int i = 1; i * i <= N; i++)
-    {
-        for (int j = 1; j * j <= N; j++)
+    for (int i = 1; i <= N; i++)
+    {   
+        int local_sum = 0;
+        for (int j = 1; j * j <= i; j++)
         {
             if (i % j == 0)
             {
-                sum = sum + j;
-                if ((N / j) != j)
+                local_sum += j;
+                if ((i / j) != j)
                 {
-                    sum = sum + j;
+                    local_sum += i/j;
                 }
             }
         }
+        sum += local_sum;
     }
     return sum;
 }
