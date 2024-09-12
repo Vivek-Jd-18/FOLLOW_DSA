@@ -32,28 +32,39 @@
 
 
 # problem link:https://leetcode.com/problems/frequency-of-the-most-frequent-element/description/
+# import sys
+# minnie = sys.maxsize
+# maxxie = -sys.maxsize - 1
+
+# ref = [1,2,4]
+
+def freq_of_most_feq_ele(arr: list, k:int):
+    arr.sort()
+    left, right = 0, 0
+    res, total = 0, 0
+
+    while right < len(arr):
+        total += arr[right]
+
+        while arr[right] * (right - left +1 ) > total + k:
+            total -= arr[left]
+            left+=1
+        res = max(res, right - left + 1)
+        right += 1
+
+    return res
 
 
-def freq_of_most_feq_ele(arr, k):
-    freq = 0
-    for i in range(len(arr)-1):
-        temp_freq = 0
-        if(arr[i] != arr[i+1]):
-            for j in range(k+1):
-                if(arr[i]+j == arr[i+1]):
-                    temp_freq+=1
-                    break
-        freq+=temp_freq
-    
-    return freq + 1
 
 
-# nums = [1,2,4]; k = 5
-# print(freq_of_most_feq_ele(nums, k))
 
 
-nums = [1,4,8,13]; k = 5
+nums = [1,2,4]; k = 5
 print(freq_of_most_feq_ele(nums, k))
+
+
+# nums = [1,4,8,13]; k = 5
+# print(freq_of_most_feq_ele(nums, k))
 
 
 # nums = [3,9,6], k = 2
