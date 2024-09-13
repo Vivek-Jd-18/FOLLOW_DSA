@@ -241,10 +241,10 @@ int main()
 
     // // sort
 
-    // int n = 5;
+    // int n = 5;k
     // int a[] = {2, 4, 1, 3, 6, 5};
 
-    // // sort(a, end(a));
+    // // sort(a, end(a));z
     // // sort(a, a+n, greater<int>);
 
     // // customized ordering
