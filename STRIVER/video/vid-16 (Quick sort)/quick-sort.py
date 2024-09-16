@@ -30,3 +30,25 @@
 # Constraints:
 # 1 <= N <= 103
 # 1 <= arr[i] <= 104
+
+
+def helper(arr:list[int], low:int, high:int):
+    if(low < high):
+        pivot = quick_sort()
+
+        helper(arr, low, pivot-1)
+        helper(arr, pivot+1, pivot+1)
+
+def quick_sort(arr, low, high):
+    pivot = arr[low]
+    i, j = low, high
+
+    while i < j:
+        while 
+    
+
+
+arr = [3,2,6,4,8,1,5]
+print("Before: ",arr)
+quick_sort(arr)
+print("After: ",arr)
