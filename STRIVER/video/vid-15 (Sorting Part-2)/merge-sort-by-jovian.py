@@ -31,43 +31,41 @@
 # approach 1: Striver's Approach
 
 
-def merge(left_li:list[int], right_li: list[int]):
-    local_li: list[int] = [] 
-    i,j = 0, 0
-
-    while(i < len(left_li) and j < len(right_li)):
-        if(left_li[i] <= right_li[j]):
-            local_li.append(left_li[i])
-            i+=1
-        else:
-            local_li.append(right_li[j])
-            j+=1
-    
-    left_rem, right_rem = left_li[i:], right_li[j:]
-
-    return local_li + left_rem + right_rem
-        
-
 def divider(arr: list[int]):
-    if(len(arr) <= 1):
+    if (len(arr) <=1): 
         return arr
-    
-    mid = (len(arr)) // 2
 
-    # l = [:mid]
-    # r = [mid:]
+    mid = len(arr) // 2
 
-    left, right = divider(l), divider(r)
-    
+    l = arr[:mid]
+    r = arr[mid:]
+
+    left_li, right_li = divider(l), divider(r)
+
+    # final merge
+    return merge(left_li, right_li)
+
+
+def merge(left_li:list[int], righty_li:list[int]):
+    temp:list[int] = []
+    left_pointer, right_pointer = 0, 0
+
+    while left_pointer < len(left_li) and right_pointer < len(righty_li):
+        if left_li[left_pointer] <= righty_li[right_pointer]:
+            temp.append(left_li[left_pointer])
+            left_pointer+=1
+        else:
+            temp.append(righty_li[right_pointer])
+            right_pointer+=1
+        
+    left_rem, right_rem = left_li[left_pointer:], righty_li[right_pointer:]
+
+    return temp + left_rem + right_rem
 
 arr = [2,4,7,1,5,3]
 
 print("Array before: ",arr)
 print("Array after: ",divider(arr))
-
-
-
-
 
 
 

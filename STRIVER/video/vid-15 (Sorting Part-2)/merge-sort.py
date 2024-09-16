@@ -24,83 +24,11 @@
 
 # Constraints:
 # 1 <= N <= 105
-# 1 <= arr[i] <= 105
+# 1 <= arr[i] <= 105U
 
 # problem link = https://www.geeksforgeeks.org/problems/merge-sort/1?utm_source=youtube&utm_medium=collab_striver_ytdescription&utm_campaign=merge-sort 
 
 # approach 1: Striver's Approach
-
-# def merge(arr: list[int], start: int, mid:int, end: int):
-#     temp: list[int] = []
-
-#     left = start
-#     right = mid + 1
-
-#     while(left <= mid and right <= end):
-#         if arr[left] <= arr[right]:
-#             temp.append(arr[left])
-#             left+=1
-#         else:
-#             temp.append(arr[right])
-#             right+=1
-    
-#     while left <= mid:
-#         temp.append(arr[left])
-#         left+=1
-    
-#     while right <= end:
-#         temp.append(arr[right])
-#         right+=1
-
-#     for i in range(start, end+1):
-#         arr[i] = temp[i - start]
-
-
-# def divider(arr: list[int], start: int, end: int):
-#     if start >= end: return
-#     mid = (start+end)//2
-#     divider(arr, start, mid)
-#     divider(arr, mid+1, end)
-
-#     # merge
-#     merge(arr, start, mid, end)
-
-
-
-# arr = [3,2,1]
-# # arr = [3,2,6,4,1,2,5]   
-# print("Array before: ",arr)
-# divider(arr,0 ,len(arr)-1)
-# print("Array after:",arr)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-# ----------------------------------------------------------------------------------------------------
-
-
 
 def merge(arr: list[int], start:int, mid:int, end:int):
     temp:list[int] = []
@@ -144,3 +72,9 @@ arr = [2,4,6,1,3,5,9,2,1]
 print("before: ",arr)
 divider(arr,0 , len(arr)-1)
 print("after: ",arr)
+
+# time complexity:
+# O(nlogn)
+
+# space complecity
+# O(n)
