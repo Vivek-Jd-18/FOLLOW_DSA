@@ -31,24 +31,39 @@
 # 1 <= N <= 103
 # 1 <= arr[i] <= 104
 
+# problem link: https://www.geeksforgeeks.org/problems/quick-sort/1
 
 def helper(arr:list[int], low:int, high:int):
     if(low < high):
-        pivot = quick_sort()
+        pivot = quick_sort(arr, low, high)
 
         helper(arr, low, pivot-1)
-        helper(arr, pivot+1, pivot+1)
+        helper(arr, pivot+1, high)
+
+    return
 
 def quick_sort(arr, low, high):
     pivot = arr[low]
     i, j = low, high
 
     while i < j:
-        while 
-    
+        while arr[i] <= pivot and i < high:
+            i+=1
+        
+        while arr[j] >= pivot and j > low:
+            j-=1
+
+        if i < j:
+            arr[i], arr[j] = arr[j], arr[i]
+
+    pivot, arr[j] = arr[j], pivot
+
+    return j
 
 
-arr = [3,2,6,4,8,1,5]
+# arr = [3,2,6,4,8,1,5]
+arr = [3,5,8,4,2,4,8,9,2,10,22,3,7,33,88,99,23]
+# arr = [3,2,6,4,8,1,5]
 print("Before: ",arr)
-quick_sort(arr)
+helper(arr,0 , len(arr)-1)
 print("After: ",arr)
