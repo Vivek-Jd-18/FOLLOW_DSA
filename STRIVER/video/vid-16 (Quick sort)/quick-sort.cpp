@@ -115,6 +115,7 @@ int quick(vector<int> &arr, int low, int high)
         {
             i++;
         }
+
         while (arr[j] >= pivot && j > low)
         {
             j--;
@@ -129,9 +130,9 @@ int quick(vector<int> &arr, int low, int high)
     int temp = arr[j];
     arr[j] = arr[low];
     arr[low] = temp;
-    
     return j;
 }
+
 void divider(vector<int> &arr, int low, int high)
 {
     if (low < high)
@@ -144,15 +145,21 @@ void divider(vector<int> &arr, int low, int high)
 }
 
 int main()
-{   
-    vector<int> arr = {2,45,2,54,78,90,34,1,2,4,21,2,9,0};
-    int n = (arr.size()-1);
-    cout<<"Array Before: "<<endl;
-    for(auto i:arr){cout<<i<<" ";}
-    divider(arr, 0, n);
-    cout<<endl;
-    cout<<"Array After: "<<endl;
-    for(auto i:arr){cout<<i<<" ";}
-    cout<<endl;
-    return 0;
+{
+    vector<int> arr = {3, 6, 8, 9, 3, 5, 1, 0};
+    int n = arr.size();
+    cout << "Array before:" << endl;
+    for (auto i : arr)
+    {
+        cout << i << " ";
+    }
+    cout << endl;
+    divider(arr, 0, n - 1);
+    cout << "Array after:" << endl;
+    for (auto i : arr)
+    {
+        cout << i << " ";
+    }
+    cout << endl;
+    cout << endl;
 }
