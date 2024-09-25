@@ -49,13 +49,14 @@ def remove_dup_from_sorted_arr(nums):
     i, j = 0, 1
 
     while(j<len(arr)):
-        if arr[j] <= arr[i]:
-            j+=1
-        else:
-            i+=1 
-            arr[i] = arr[j]
+        if arr[i] != arr[j]:
+            arr[i+1] = arr[j]
+            i+=1
+        j+=1
+    return i+1
 
 
-arr = [0,0,1,1,1,2,2,3,3,4]
-remove_dup_from_sorted_arr(arr)
-print(arr)
+# arr = [1,1,1,2,2,3,3,4]
+arr = [1,1,2]
+
+print(remove_dup_from_sorted_arr(arr))
