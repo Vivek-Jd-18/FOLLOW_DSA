@@ -32,24 +32,25 @@
 def move_zeros(arr: list[int])->None:
     if len(arr) == 0:return arr
 
-    i, j = 0, 1
-
-    # while(j < len(arr)):
-    #     if(arr[j] != 0):
-    #         arr[i], arr[j] = arr[j], arr[i]
-    #         i+=1
-    #     j+=1
-
-    while(j<len(arr)):
-        if(arr[j] != 0 and arr[i] == 0):
-            arr[i], arr[j] = arr[j], arr[i]
+    i = -1
+    # first find the first '0' zero
+    for j in range(len(arr)):
+        if arr[j] == 0:
+            i = j
+            break
+    if i == -1: return
+    for j in range(i+1,len(arr)):
+        if arr[j] != 0:
+            arr[i],arr[j] = arr[j],arr[i]
             i+=1
-        j+=1
 
+        
+    
 
-# nums = [0,1,0,3,12]
-# nums = [1,2]
 nums = [1,0,1]
+nums = [1,2]
+nums = [0,1,0,3,12]
+nums = [1,2,3,1]
 move_zeros(nums)
 print(nums)
 
