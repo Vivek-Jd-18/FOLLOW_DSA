@@ -43,8 +43,8 @@ def intersection_of_two_arr(arr1, arr2):
     return inter_array    
 
 
-arr1 = [1, 2, 3, 4]
-arr2 = [2, 4, 6, 7, 8]
+arr1 = [4,9,5]
+arr2 = [9,4,9,8,4]
 
 print(intersection_of_two_arr(arr1, arr2))
 

@@ -43,43 +43,85 @@
 # problem link: https://www.geeksforgeeks.org/problems/union-of-two-sorted-arrays-1587115621/1
 
 
-def union_of_two_arr(a1: list[int], a2: list[int])->list[int]:
+# def union_of_two_arr(a1: list[int], a2: list[int])->list[int]:
+#     i, j = 0, 0
+#     temp: list[int] = []
+
+#     # while one of the array gets empty
+
+#     while i < len(a1) and j < len(a2):
+#         # if a1[i] is smaller
+#         if a1[i] < a2[j]:
+#             if len(temp) == 0 or temp[len(temp)-1] != a1[i]:
+#                 temp.append(a1[i])
+#             i+=1
+#         # if a2[j] is smaller
+#         else:
+#             if len(temp) == 0 or temp[len(temp)-1] != a2[j]:
+#                 temp.append(a2[j])
+#             j+=1
+
+#     # filling up remaining elements
+#     while i < len(a1):
+#         if len(temp) == 0 or temp[len(temp)-1] != a1[i]:
+#             temp.append(a1[i])
+#         i+=1
+
+#     while j < len(a2):
+#         if len(temp) == 0 or temp[len(temp)-1] != a2[j]:
+#             temp.append(a2[j])
+#         j+=1
+
+#     return temp
+
+
+
+# # n1 = [1, 2, 3, 4, 5]
+# # n2 = [1, 2, 3, 6, 7]
+
+# n1 = [-7, 8]
+# n2 = [-8, -3, 8]
+
+# print(union_of_two_arr(n1, n2))
+
+
+
+
+
+#  --------------------------------------------   Practice    ---------------------------------------------
+
+def union(arr1, arr2):
     i, j = 0, 0
-    temp: list[int] = []
+    temp = []
 
-    # while one of the array gets empty
-
-    while i < len(a1) and j < len(a2):
-        # if a1[i] is smaller
-        if a1[i] < a2[j]:
-            if len(temp) == 0 or temp[len(temp)-1] != a1[i]:
-                temp.append(a1[i])
+    while i < len(arr1) and j < len(arr2):
+        if arr1[i] < arr2[j]:
+            if(len(temp) == 0 or temp[-1] != arr1[i]):
+                temp.append(arr1[i])
             i+=1
-        # if a2[j] is smaller
         else:
-            if len(temp) == 0 or temp[len(temp)-1] != a2[j]:
-                temp.append(a2[j])
+            if(len(temp) == 0 or temp[-1] != arr2[j]):
+                temp.append(arr2[j])
             j+=1
-
-    # filling up remaining elements
-    while i < len(a1):
-        if len(temp) == 0 or temp[len(temp)-1] != a1[i]:
-            temp.append(a1[i])
+        
+    while i < len(arr1):
+        if(len(temp) == 0 or temp[-1] != arr1[i]):
+            temp.append(arr1[i])
         i+=1
 
-    while j < len(a2):
-        if len(temp) == 0 or temp[len(temp)-1] != a2[j]:
-            temp.append(a2[j])
+    while j < len(arr2):
+        if(len(temp) == 0 or temp[-1] != arr2[j]):
+            temp.append(arr2[j])
         j+=1
 
     return temp
 
 
 
-# n1 = [1, 2, 3, 4, 5]
-# n2 = [1, 2, 3, 6, 7]
+# Input: 
+n = 5; arr1 = [1, 2, 3, 4, 5]  
+m = 5; arr2 = [1, 2, 3, 6, 7]
+# Output: 
+# [1 2 3 4 5 6 7]
 
-n1 = [-7, 8]
-n2 = [-8, -3, 8]
-
-print(union_of_two_arr(n1, n2))
+print(union(arr1, arr2))
