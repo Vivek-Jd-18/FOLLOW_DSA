@@ -47,8 +47,31 @@ def find_mising_num_optimal_xor(arr: list[int]) -> int:
 
     return xor1 ^ xor2
 
+# # nums = [9,6,4,2,3,5,7,0,1]
+# # nums = [0,1]
+# nums = [3,0,1]
+# print(find_mising_num_optimal_xor(nums))
+# # Output: 8
+
+# # Time complexity: O(2n)
+
+
+
+def find_mising_num_optimal_xor_2(arr: list[int]) -> int:
+    xor1, xor2 = 0, 0
+
+    for i in range(len(arr)):
+        xor1 = xor1 ^ (i+1)
+        xor2 = xor2 ^ arr[i]
+    
+    # xor1 = xor1 ^ len(arr)
+
+    return xor1 ^ xor2
+
 # nums = [9,6,4,2,3,5,7,0,1]
 # nums = [0,1]
 nums = [3,0,1]
-print(find_mising_num_optimal_xor(nums))
+print(find_mising_num_optimal_xor_2(nums))
 # Output: 8
+
+# Time complexity: O(n)
