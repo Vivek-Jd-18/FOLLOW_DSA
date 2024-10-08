@@ -64,7 +64,7 @@
 # # Output : 0
 
 
-# # brute force
+# # brute force ----------------------------------------------------------------
 # def main(arr:list[int], k: int) -> int:
 #     longest_len = 0
 #     for i in range(len(arr)):
@@ -85,33 +85,75 @@
 # print(main(arr,k))
 # # # Output : 0
 
+# Time Complexity: O(n^2)
+# Space Complexity: O(1)
 
-def better(arr: list[int], k:int) -> int:
-    hash_map = {}
-    _sum = 0
-    longest_len = 0
 
-    for i in range(len(arr)):
-        _sum += arr[i]
+# Better approach -------------------------------------------------------------
+# def better(arr: list[int], k:int) -> int:
+#     hash_map = {}
+#     _sum = 0
+#     longest_len = 0
 
-        # if sum is equal to k
-        if(_sum == k):
-            longest_len = max(longest_len, i+1)
+#     for i in range(len(arr)):
+#         _sum += arr[i]
+
+#         # if sum is equal to k
+#         if(_sum == k):
+#             longest_len = max(longest_len, i+1)
         
-        rem = _sum - k
-        if(rem in hash_map):
-            _len = i - hash_map[rem]
-            longest_len = max(longest_len, _len)
-        if _sum not in hash_map:
-            hash_map[_sum] = i 
+#         rem = _sum - k
+#         if(rem in hash_map):
+#             _len = i - hash_map[rem]
+#             longest_len = max(longest_len, _len)
+#         if _sum not in hash_map:
+#             hash_map[_sum] = i 
     
-    return longest_len         
+#     return longest_len         
 
 
-n = 6; arr = [1,2,1,2,1]; k = 15
-print(better(arr,k))
+# n = 6; arr = [10, 5, 2, 7, 1, 9]; k = 15
+# print(better(arr,k))
+# # # Output : 4
+
+# n= 3; arr = [-1, 2, 3]; k = 6
+# print(better(arr,k))
+# # # Output : 0
+
+# Time Complexity: O(n)
+# Space Complexity: O(n)
+
+
+
+
+
+
+
+# Optimal approach -------------------------------------------------------------
+
+def optimal(arr:list[int], k:int) -> int:    
+    left, right = 0, 0
+    longest_len = 0 
+    _sum = arr[0]
+
+    while right < len(arr):
+        while left <= right and _sum > k:
+            _sum-=arr[left]
+            left+=1
+        
+        if(_sum == k):
+            longest_len = max(longest_len , right - left + 1)
+        
+        right+=1
+        if(right < len(arr)):
+            _sum += arr[right]
+    return longest_len
+        
+
+
+n = 6; arr = [10, 5, 2, 7, 1, 9]; k = 15
+print(optimal(arr,k))
 # # Output : 4
 
 n= 3; arr = [-1, 2, 3]; k = 6
-print(better(arr,k))
-# # Output : 0
+print(optimal(arr,k))
