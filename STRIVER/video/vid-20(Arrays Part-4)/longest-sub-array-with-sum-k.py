@@ -157,3 +157,6 @@ print(optimal(arr,k))
 
 n= 3; arr = [-1, 2, 3]; k = 6
 print(optimal(arr,k))
+
+# time complexity:  0(2n)
+
