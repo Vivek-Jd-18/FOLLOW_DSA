@@ -102,4 +102,6 @@ nums = [2,0,1]
 sort_optimal(nums)
 print(nums)
 # Output: [0,1,2]
+
+# time complexity: O(n), space complexity: O(n)
  
